@@ -4,9 +4,18 @@
 
 @implementation MyExampleTestCase
 
+- (void)setUp
+{
+    [super setUp];
+    
+    // shortcut: all tests are asynchronous
+    // [self beginAsyncOperation];
+}
+
 - (void)testNetworkStuff
 {
-    [self beginAsyncOperation]
+    // can be placed in each test or in [setUp] for the entire test case
+    [self beginAsyncOperation];
 
     NSString *identifier = @"777";
     // do something asynchronous (perform a network operation)
